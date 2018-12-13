@@ -1,0 +1,59 @@
+name: vce
+version: '0.1.0.0'
+category: Web
+author: Jake Keuhlen
+copyright: 2018 Jake Keuhlen
+license: BSD3
+github: jkeuhlen/vce
+extra-source-files:
+- README.md
+library:
+  source-dirs: src
+  dependencies:
+  - base >=4.7 && <5
+  - aeson
+  - aeson-lens
+  - lens
+  - servant-server
+  - servant-swagger
+  - swagger2
+  - http-api-data
+  - wai
+  - warp
+  - text
+  - freer-simple
+  - containers
+  - http-client
+  - http-client-tls
+  - bytestring
+  - scientific
+  default-extensions: 
+    OverloadedStrings
+executables:
+  vce-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - vce
+tests:
+  vce-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - vce
+    - hspec
+    - hspec-wai
+    - hspec-wai-json
+    - aeson
+    - QuickCheck  
+    - freer-simple
